@@ -3,13 +3,13 @@ import {
   HttpHandler,
   HttpInterceptor,
   HttpRequest
-} from "@angular/common/http";
-import { Inject, Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { mergeMap } from "rxjs/internal/operators/mergeMap";
+} from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { mergeMap } from 'rxjs/internal/operators/mergeMap';
 
-import { APP_CONFIG, AppConfig } from "./../config/app.config";
-import { AdalService } from "./bc-adal-angular.service";
+import { APP_CONFIG, AppConfig } from './../config/app.config';
+import { AdalService } from './bc-adal-angular.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -27,7 +27,7 @@ export class AuthInterceptor implements HttpInterceptor {
         if (token) {
           req = req.clone({
             setHeaders: {
-              Authorization: "Bearer " + token
+              Authorization: 'Bearer ' + token
             }
           });
         }

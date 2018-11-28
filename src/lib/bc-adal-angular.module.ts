@@ -1,11 +1,11 @@
-import { CommonModule } from "@angular/common";
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
+import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 
-import { AdalAccessGuard } from "./guards/adal-access.guard";
-import { AdalConfigService } from "./services/adal-config.service";
-import { AuthInterceptor } from "./services/auth-interceptor";
-import { AdalService } from "./services/bc-adal-angular.service";
+import { AdalAccessGuard } from './guards/adal-access.guard';
+import { AdalConfigService } from './services/adal-config.service';
+import { AuthInterceptor } from './services/auth-interceptor';
+import { AdalService } from './services/bc-adal-angular.service';
 
 /* "Barrel" of Http Interceptors */
 
