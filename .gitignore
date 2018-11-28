@@ -1,11 +1,29 @@
-.DS_STORE
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-/dist/
-/bazel-*
-e2e_test.*
-node_modules
-bower_components
-tools/gulp-tasks/cldr/cldr-data/
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+/bower_components
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # Include when developing application packages.
 pubspec.lock
@@ -29,5 +47,20 @@ yarn-error.log
 
 # rollup-test output
 /modules/rollup-test/dist/
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+/bazel-*
+e2e_test.*
 
 package-lock.json
