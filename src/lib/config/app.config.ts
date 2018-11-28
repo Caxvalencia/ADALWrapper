@@ -1,4 +1,4 @@
-import { InjectionToken } from "@angular/core";
+import { InjectionToken } from '@angular/core';
 
 export class AppConfig {
   apiEndpoint: string;
@@ -8,4 +8,4 @@ export class AppConfig {
   redirectUri: string;
 }
 
-export let APP_CONFIG = new InjectionToken<AppConfig>("app.config");
+export let APP_CONFIG = new InjectionToken<AppConfig>('app.config');
