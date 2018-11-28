@@ -1,6 +1,6 @@
 {
-  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/bc-adal-angular",
+  "$schema": "node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "dist/bc-adal-angular",
   "lib": {
     "entryFile": "src/public_api.ts"
   }
