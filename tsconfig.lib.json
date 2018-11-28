@@ -1,7 +1,8 @@
 {
-  "extends": "../../tsconfig.json",
+  "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "../../out-tsc/lib",
+    "baseUrl": "./",
+    "outDir": "./out-tsc/lib",
     "target": "es2015",
     "module": "es2015",
     "moduleResolution": "node",
@@ -11,11 +12,13 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
+    "typeRoots": ["./node_modules/@types"],
     "types": [],
-    "lib": [
-      "dom",
-      "es2018"
-    ]
+    "lib": ["dom", "es2018"],
+    "paths": {
+      "bc-adal-angular": ["dist/bc-adal-angular"],
+      "bc-adal-angular/*": ["dist/bc-adal-angular/*"]
+    }
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
@@ -25,8 +28,5 @@
     "strictInjectionParameters": true,
     "enableResourceInlining": true
   },
-  "exclude": [
-    "src/test.ts",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["src/test.ts", "**/*.spec.ts"]
 }
