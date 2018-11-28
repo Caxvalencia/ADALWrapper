@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { NgModule } from '@angular/core';
 
+import { ADAL_OPTIONS, AdalOptions } from './config/adal.options';
 import { AdalAccessGuard } from './guards/adal-access.guard';
-import { AdalConfigService } from './services/adal-config.service';
 import { AuthInterceptor } from './services/auth-interceptor';
 import { AdalService } from './services/bc-adal-angular.service';
 
@@ -17,11 +18,13 @@ export const httpInterceptorProviders = [
 @NgModule({
   imports: [CommonModule, HttpClientModule],
   declarations: [],
-  providers: [
-    AdalConfigService,
-    AdalService,
-    AdalAccessGuard,
-    httpInterceptorProviders
-  ]
+  providers: [AdalService, AdalAccessGuard, httpInterceptorProviders]
 })
-export class BcAdalAngularModule {}
+export class BcAdalAngularModule {
+  static forRoot(options: AdalOptions): ModuleWithProviders {
+    return {
+      ngModule: BcAdalAngularModule,
+      providers: [AdalService, { provide: ADAL_OPTIONS, useValue: options }]
+    };
+  }
+}

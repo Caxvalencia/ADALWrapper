@@ -1,26 +1,36 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import * as AuthenticationContext from 'adal-angular';
 import { Observable, Subscriber } from 'rxjs';
 import { retry } from 'rxjs/operators';
 
-import { AdalConfigService } from './adal-config.service';
+import { ADAL_OPTIONS, AdalOptions } from './../config/adal.options';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdalService {
   private context: AuthenticationContext;
+  private options: AdalOptions;
 
-  constructor(private configService: AdalConfigService) {
-    this.context = new AuthenticationContext(configService.options);
+  constructor(@Inject(ADAL_OPTIONS) private adalOptions: AdalOptions) {
+    this.setOptions(adalOptions);
+    this.initAuthenticationContext();
   }
 
-  login() {
+  public login() {
     this.context.login();
   }
 
-  logout() {
+  public logout() {
     this.context.logOut();
+  }
+
+  public getOptions(): AdalOptions {
+    return this.options;
+  }
+
+  public setOptions(adalOptions: AdalOptions) {
+    this.options = adalOptions;
   }
 
   get authContext() {
@@ -36,11 +46,15 @@ export class AdalService {
   }
 
   public get accessToken() {
-    return this.context.getCachedToken(this.configService.options.clientId);
+    return this.context.getCachedToken(this.options.clientId);
   }
 
   public get isAuthenticated() {
     return this.userInfo && this.accessToken;
+  }
+
+  public getResourceForEndpoint(url: string): string | null {
+    return this.context.getResourceForEndpoint(url);
   }
 
   public isCallback(hash: string) {
@@ -68,5 +82,9 @@ export class AdalService {
         }
       })
     ).pipe(retry(3));
+  }
+
+  private initAuthenticationContext() {
+    this.context = new AuthenticationContext(this.options);
   }
 }

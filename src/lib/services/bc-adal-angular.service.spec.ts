@@ -1,20 +1,18 @@
-import { APP_CONFIG } from './../config/app.config';
+import { ADAL_OPTIONS } from '../config/adal.options';
 import { inject, TestBed } from '@angular/core/testing';
 
-import { AdalConfigService } from './adal-config.service';
 import { AdalService } from './bc-adal-angular.service';
 
 describe('AdalService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        AdalConfigService,
         AdalService,
         {
-          provide: APP_CONFIG,
+          provide: ADAL_OPTIONS,
           useValue: {
-            clientId: 'xxxxxxx',
-            tenantId: 'yyyyyyy',
+            clientId: '<MY CLIENT ID>',
+            redirectUri: window.location.origin
           }
         }
       ]
