@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { BcAdalAngularModule } from './bc-adal-angular.module';
-import { AdalService } from './services/bc-adal-angular.service';
+import { BcAdalAngularService } from './services/bc-adal-angular.service';
 
 describe(`FeatureModule.forRoot()`, () => {
   const adalOptions = {
@@ -15,11 +15,11 @@ describe(`FeatureModule.forRoot()`, () => {
   });
 
   it(`should provide services`, () => {
-    expect(TestBed.get(AdalService)).toBeTruthy();
+    expect(TestBed.get(BcAdalAngularService)).toBeTruthy();
   });
 
   it(`should provide a single instance for 'AdalService' and 'AdalOptions' injection tokens`, () => {
-    const adalService: AdalService = TestBed.get(AdalService);
+    const adalService: BcAdalAngularService = TestBed.get(BcAdalAngularService);
 
     // both should be same instance
     expect(adalService.getOptions()).toEqual(adalOptions);

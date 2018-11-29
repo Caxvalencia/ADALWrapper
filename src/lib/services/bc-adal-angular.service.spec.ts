@@ -1,13 +1,13 @@
 import { ADAL_OPTIONS } from '../config/adal.options';
 import { inject, TestBed } from '@angular/core/testing';
 
-import { AdalService } from './bc-adal-angular.service';
+import { BcAdalAngularService } from './bc-adal-angular.service';
 
-describe('AdalService', () => {
+describe('BcAdalAngularService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        AdalService,
+        BcAdalAngularService,
         {
           provide: ADAL_OPTIONS,
           useValue: {
@@ -19,7 +19,7 @@ describe('AdalService', () => {
     });
   });
 
-  it('should be created', inject([AdalService], (service: AdalService) => {
+  it('should be created', inject([BcAdalAngularService], (service: BcAdalAngularService) => {
     expect(service).toBeTruthy();
   }));
 });

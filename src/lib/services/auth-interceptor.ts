@@ -8,11 +8,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/internal/operators/mergeMap';
 
-import { AdalService } from './bc-adal-angular.service';
+import { BcAdalAngularService } from './bc-adal-angular.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private adalService: AdalService) {}
+  constructor(private adalService: BcAdalAngularService) {}
 
   intercept(
     request: HttpRequest<any>,

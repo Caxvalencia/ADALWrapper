@@ -8,11 +8,11 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { AdalService } from './../services/bc-adal-angular.service';
+import { BcAdalAngularService } from './../services/bc-adal-angular.service';
 
 @Injectable()
 export class AdalAccessGuard implements CanActivate {
-  constructor(private router: Router, private adalService: AdalService) {}
+  constructor(private router: Router, private adalService: BcAdalAngularService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,

@@ -6,7 +6,7 @@ import { retry } from 'rxjs/operators';
 import { ADAL_OPTIONS, AdalOptions } from './../config/adal.options';
 
 @Injectable()
-export class AdalService {
+export class BcAdalAngularService {
   private context: AuthenticationContext;
   private options: AdalOptions;
 
