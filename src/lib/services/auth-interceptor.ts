@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const resource =
       this.adalService.getResourceForEndpoint(request.url) ||
-      this.adalService.getOptions().resource;
+      this.adalService.getOptions()['resource'];
 
     if (!resource) {
       return next.handle(request);
