@@ -5,9 +5,7 @@ import { retry } from 'rxjs/operators';
 
 import { ADAL_OPTIONS, AdalOptions } from './../config/adal.options';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AdalService {
   private context: AuthenticationContext;
   private options: AdalOptions;
