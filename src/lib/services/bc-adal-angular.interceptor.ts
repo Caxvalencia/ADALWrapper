@@ -34,13 +34,15 @@ export class BcAdalAngularInterceptor implements HttpInterceptor {
 
     return this.adalService.acquireTokenResilient(resource).pipe(
       mergeMap((token: string) => {
-        if (token) {
-          request = request.clone({
-            setHeaders: { Authorization: 'Bearer ' + token }
-          });
+        if (!token) {
+          return next.handle(request);
         }
 
-        return next.handle(request);
+        const requestWithAuthorization = request.clone({
+          headers: request.headers.set('Authorization', 'Bearer ' + token)
+        });
+
+        return next.handle(requestWithAuthorization);
       })
     );
   }
