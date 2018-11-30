@@ -5,14 +5,14 @@ import { NgModule } from '@angular/core';
 
 import { ADAL_OPTIONS, AdalOptions } from './config/adal.options';
 import { AdalAccessGuard } from './guards/adal-access.guard';
-import { AuthInterceptor } from './services/auth-interceptor';
+import { BcAdalAngularInterceptor } from './services/bc-adal-angular.interceptor';
 import { BcAdalAngularService } from './services/bc-adal-angular.service';
 
 /* "Barrel" of Http Interceptors */
 
 /** Http interceptor providers in outside-in order */
 export const httpInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  { provide: HTTP_INTERCEPTORS, useClass: BcAdalAngularInterceptor, multi: true }
 ];
 
 @NgModule({

@@ -11,7 +11,7 @@ import { mergeMap } from 'rxjs/internal/operators/mergeMap';
 import { BcAdalAngularService } from './bc-adal-angular.service';
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class BcAdalAngularInterceptor implements HttpInterceptor {
   constructor(private adalService: BcAdalAngularService) {}
 
   intercept(
