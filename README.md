@@ -32,15 +32,10 @@ Configure Adal Options while importing the module.
 @NgModule({
   imports: [
     BcAdalAngularModule.forRoot({
-      tenant: '<YOUR TENANT>',
-      clientId: '<YOUR CLIENT / APP ID>',
+      tenant: '[Enter your tenant]',
+      clientId: '[Enter your client_id here, e.g. g075edef-0efa-453b-997b-de1337c29185]',
       redirectUri: window.location.origin,
-      endpoints: {
-        "https://localhost/api/v1/": "xxx-bae6-4760-b434-xxx",
-        // ...
-      },
-      navigateToLoginRequestUrl: false,
-      cacheLocation: '<localStorage / sessionStorage>',
+      // ...
     }),
     // ...
   ],
