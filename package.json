@@ -4,11 +4,12 @@
   "scripts": {
     "ng": "ng",
     "test": "ng test",
+    "test:coverage": "ng test --code-coverage && http-server -c-1 -o -p 9875 ./coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json",
-    "npm_pack": "npm run packagr && cd dist/bc-adal-angular && npm pack",
-    "build": "npm run test && npm run packagr"
+    "build": "npm run lint && npm run test && npm run packagr",
+    "build:pack": "npm run build && cd dist/bc-adal-angular && npm pack"
   },
   "private": false,
   "peerDependencies": {
@@ -35,6 +36,7 @@
     "@types/node": "~8.9.4",
     "adal-angular": "^1.0.17",
     "codelyzer": "~4.3.0",
+    "http-server": "^0.11.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
