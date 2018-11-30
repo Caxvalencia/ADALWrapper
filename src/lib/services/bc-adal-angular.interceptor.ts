@@ -1,4 +1,5 @@
 import {
+  HTTP_INTERCEPTORS,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
@@ -47,3 +48,12 @@ export class BcAdalAngularInterceptor implements HttpInterceptor {
     );
   }
 }
+
+/** Http interceptor providers in outside-in order */
+export const httpInterceptorProviders = [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: BcAdalAngularInterceptor,
+    multi: true
+  }
+];
