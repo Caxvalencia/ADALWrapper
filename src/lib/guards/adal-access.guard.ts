@@ -12,7 +12,10 @@ import { BcAdalAngularService } from './../services/bc-adal-angular.service';
 
 @Injectable()
 export class AdalAccessGuard implements CanActivate {
-  constructor(private router: Router, private adalService: BcAdalAngularService) {}
+  constructor(
+    private router: Router,
+    private adalService: BcAdalAngularService
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -22,10 +25,12 @@ export class AdalAccessGuard implements CanActivate {
       queryParams: { redirectUrl: route.url }
     };
 
-    if (!this.adalService.userInfo) {
-      this.router.navigate(['accessdenied'], navigationExtras);
+    if (this.adalService.userInfo) {
+      return true;
     }
 
-    return true;
+    this.router.navigate(['accessdenied'], navigationExtras);
+
+    return false;
   }
 }

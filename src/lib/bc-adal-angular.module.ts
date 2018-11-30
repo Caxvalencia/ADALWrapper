@@ -17,14 +17,18 @@ export const httpInterceptorProviders = [
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
-  declarations: [],
-  providers: [BcAdalAngularService, AdalAccessGuard, httpInterceptorProviders]
+  declarations: []
 })
 export class BcAdalAngularModule {
   static forRoot(options: AdalOptions): ModuleWithProviders {
     return {
       ngModule: BcAdalAngularModule,
-      providers: [BcAdalAngularService, { provide: ADAL_OPTIONS, useValue: options }]
+      providers: [
+        BcAdalAngularService,
+        AdalAccessGuard,
+        httpInterceptorProviders,
+        { provide: ADAL_OPTIONS, useValue: options }
+      ]
     };
   }
 }
