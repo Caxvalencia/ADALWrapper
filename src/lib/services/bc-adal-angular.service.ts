@@ -70,6 +70,7 @@ export class BcAdalAngularService {
     return this.context.acquireToken(endpoint, callbacks);
   }
 
+  /* istanbul ignore next */
   public acquireTokenResilient(resource: string): Observable<any> {
     return new Observable<any>((subscriber: Subscriber<any>) =>
       this.context.acquireToken(resource, (message: string, token: string) => {
