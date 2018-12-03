@@ -43,7 +43,8 @@ Configure Adal Options while importing the module.
 })
 ```
 
-For a list of all available adal configuration options, refer - [https://github.com/AzureAD/azure-activedirectory-library-for-js/blob/dev/lib/adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js/blob/dev/lib/adal.js)
+For a list of all available adal configuration options, refer:
+[https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#configurable-options](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#configurable-options)
 
 **Step 3: Secure individual routes of Angular**
 
