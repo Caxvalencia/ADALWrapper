@@ -20,8 +20,8 @@ export class BcAdalAngularInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const resource =
-      this.adalService.getResourceForEndpoint(request.url) ||
-      this.adalService.getOptions()['resource'];
+      this.adalService.getOptions()['resource'] ||
+      this.adalService.getResourceForEndpoint(request.url);
 
     if (!resource) {
       return next.handle(request);
