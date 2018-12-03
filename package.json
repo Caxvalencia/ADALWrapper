@@ -53,5 +53,7 @@
     "typescript": "~2.9.2",
     "zone.js": "^0.8.26"
   },
-  "dependencies": {}
+  "dependencies": {
+    "adal-angular": "^1.0.17"
+  }
 }
