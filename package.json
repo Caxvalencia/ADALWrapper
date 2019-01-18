@@ -8,8 +8,15 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json",
-    "build": "npm run lint && npm run test && npm run packagr",
-    "build:pack": "npm run build && cd dist/bc-adal-angular && npm pack"
+    "build": "npm run packagr",
+    "build:test": "npm test && npm run lint && npm run build",
+    "build:pack": "npm run build:test && cd dist/bc-adal-angular && npm pack",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dericop/ADALWrapper.git"
   },
   "private": false,
   "peerDependencies": {
